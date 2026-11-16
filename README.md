@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Innovyx Studio
 
-## Getting Started
+An immersive Next.js portfolio for Muhammad Usman, following the layout and scroll mechanics of johnbolster.design. TypeScript, React, locally hosted fonts, CSS and a modular Canvas/perspective scene engine.
 
-First, run the development server:
+## Run locally
 
-```bash
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+On Windows PowerShell, use `npm.cmd` if the system execution policy prevents `npm.ps1` from running. Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build and verify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run build
+node scripts/check-scene-engine.mjs
+```
 
-## Learn More
+The static production website is exported to `out/`. No environment variables, backend, external tracking or live API connections are required.
 
-To learn more about Next.js, take a look at the following resources:
+## Edit content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `lib/content.ts`: identity, services, Instagram link and work references.
+- `sections/`: individual narrative sections.
+- `animations/scene-engine.ts`: camera, path, scroll mapping, themes and interlude.
+- `app/globals.css`: typography, composition and responsive layouts.
+- `public/images/`: portrait and six explicitly labelled illustrated placeholders.
+- `scripts/prepare-assets.mjs`: reproducible portrait optimization and preview generation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project examples use names from the supplied screenshots and are labelled references. Replace placeholders with original assets and confirmed case-study details before presenting them as completed studio work. Contact links point to the verified Instagram account; no email address is invented.
 
-## Deploy on Vercel
+The layout has a normal document-flow mode for reduced motion. Navigation and project overlays support Escape, focus trapping and focus restoration. Native scrolling remains available; the camera is visually damped rather than intercepting wheel/touch events.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `SOURCE_NOTES.md` for reference evidence and outstanding browser verification.
