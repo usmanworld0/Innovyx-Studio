@@ -67,6 +67,10 @@ for(const [width,height] of [[375,812],[390,667],[768,1024],[1440,900],[1920,108
 // Asset graph: every local image/font/style/script in the exported page exists.
 const referenced = [...html.matchAll(/(?:src|href)="(\/(?:images|fonts|_next)\/[^"?]+)(?:\?[^\"]*)?"/g)].map((m)=>m[1]);
 for(const asset of referenced)assert.ok(fs.existsSync(`out${asset}`),`Missing exported asset: ${asset}`);
-for(const svg of fs.readdirSync('public/images').filter((name)=>name.endsWith('.svg')))assert.match(fs.readFileSync(`public/images/${svg}`,'utf8'),/ORIGINAL IMAGE PENDING/);
+for(const slug of ['dipitt','loom','sweet-treats','innovyx-studio','qalakari','driptide']){
+  assert.ok(fs.existsSync(`assets/work/${slug}.png`),`Missing original screenshot: ${slug}`);
+  assert.ok(referenced.includes(`/images/work/${slug}.webp`),`Selected Work must use the actual ${slug} screenshot`);
+}
+assert.doesNotMatch(html,/illustrated placeholder|original imagery pending|reference preview|preview placeholder|\-preview\.svg/i);
 assert.doesNotMatch(html,/John Bolster|jsb@|Designing since|250\+|23 awards/i);
-console.log(`PASS exported asset graph (${new Set(referenced).size} assets), placeholder labelling and brand-content audit.`);
+console.log(`PASS exported asset graph (${new Set(referenced).size} assets), six actual work screenshots and brand-content audit.`);

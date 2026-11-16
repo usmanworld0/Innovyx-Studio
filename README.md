@@ -22,14 +22,15 @@ The static production website is exported to `out/`. No environment variables, b
 
 ## Edit content
 
-- `lib/content.ts`: identity, services, Instagram link and work references.
+- `lib/content.ts`: identity, services, Instagram link and selected work.
 - `sections/`: individual narrative sections.
 - `animations/scene-engine.ts`: camera, path, scroll mapping, themes and interlude.
 - `app/globals.css`: typography, composition and responsive layouts.
-- `public/images/`: portrait and six explicitly labelled illustrated placeholders.
-- `scripts/prepare-assets.mjs`: reproducible portrait optimization and preview generation.
+- `assets/work/`: the six original attached website screenshots.
+- `public/images/`: portrait and lossless WebP copies of those screenshots.
+- `scripts/prepare-assets.mjs`: reproducible image optimization, including pixel-for-pixel verification of each screenshot.
 
-The project examples use names from the supplied screenshots and are labelled references. Replace placeholders with original assets and confirmed case-study details before presenting them as completed studio work. Contact links point to the verified Instagram account; no email address is invented.
+Selected Work uses the actual screenshots supplied by the user: Dipitt, Loom, Sweet Treats, Innovyx Studio, Qalakari and Driptide. Cards and project views preserve each screenshot's original proportions. Contact links point to the verified Instagram account; no email address is invented.
 
 The layout has a normal document-flow mode for reduced motion. Navigation and project overlays support Escape, focus trapping and focus restoration. Native scrolling remains available; the camera is visually damped rather than intercepting wheel/touch events.
 
